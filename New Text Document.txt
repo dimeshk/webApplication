@@ -1,0 +1,42 @@
+ <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "campuslk";
+
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT * FROM `degree` WHERE ";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $did=$row["did"];
+        $dname=$row["dname"];
+        $KeyFeatures =$row["KeyFeatures"];
+        $EntryRequirements =$row["EntryRequirements"];
+        $Fees =$row["Fees"];
+        $Duration =$row["Duration"];
+        $uni =$row["uni"];
+      // $uni =$row["faculty"];
+      
+
+        echo  "$name , $email";
+      
+
+  
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
